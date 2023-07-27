@@ -1,5 +1,12 @@
-var con = require('./task2-1.js')
+const { connection, createDatabase, createTable } = require('./task2-1');
 
-con.connectDatabse();
+const databaseName = 'employees';
 
-con.createTable();
+createDatabase(databaseName);
+
+createTable();
+
+connection.end((error) => {
+  if (error) throw error;
+  console.log('MySQL connection closed.');
+});
